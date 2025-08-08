@@ -9,7 +9,7 @@ class TestSelenium:
     def test_ab_testing(self, main_page, ab_testing_page):
         assert main_page.header_dynamic("Welcome to the-internet").is_displayed()
         main_page.link_dynamic("A/B Testing").click()
-        assert ab_testing_page.wait_for_visible(ab_testing_page.HEADER).text in ["A/B Test Variation 1", "A/B Test Control"]
+        assert ab_testing_page.header_dynamic().text in ["A/B Test Variation 1", "A/B Test Control"]
 
     def test_add_remove_element(self, main_page, add_remove_elements_page):
         assert main_page.header_dynamic("Welcome to the-internet").is_displayed()
